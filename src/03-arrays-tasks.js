@@ -585,8 +585,21 @@ function getElementByIndexes(arr, indexes) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
+
 function swapHeadAndTail(arr) {
-  return arr;
+  const newarr = [];
+  if (arr.length % 2 === 0) {
+    newarr.push(arr.slice(arr.length / 2));
+    newarr.push(arr.slice(0, arr.length / 2));
+  } else if (arr.length === 1) {
+    return arr;
+  } else {
+    newarr.push(arr.slice(Math.ceil(arr.length / 2)));
+    newarr.push(arr[2]);
+    newarr.push(arr.slice(0, Math.floor(arr.length / 2)));
+  }
+
+  return newarr.flat();
 }
 
 
